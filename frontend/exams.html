@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exams - School Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar" id="navbar"></div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Exams</h1>
+      <button class="btn" id="addExamBtn" style="display:none;">+ Add Exam</button>
+    </div>
+
+    <div class="card">
+      <div class="toolbar">
+        <select id="classFilter">
+          <option value="">All classes</option>
+        </select>
+      </div>
+
+      <div id="tableWrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Exam Name</th>
+              <th>Class</th>
+              <th>Subject</th>
+              <th>Date</th>
+              <th>Max Marks</th>
+              <th>Pass Marks</th>
+              <th id="actionsHeader" style="display:none;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="examsTableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState" style="display:none;">No exams found.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit Modal -->
+  <div class="modal-overlay" id="examModal">
+    <div class="modal">
+      <h2 id="modalTitle">Add Exam</h2>
+      <form id="examForm">
+        <input type="hidden" id="examId">
+        <div class="form-group">
+          <label>Exam Name</label>
+          <input type="text" id="name" placeholder="e.g. Midterm Exam 2026" required>
+        </div>
+        <div class="form-group">
+          <label>Class</label>
+          <select id="classId" required>
+            <option value="">-- Select class --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select id="subjectId" required>
+            <option value="">-- Select class first --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Exam Date</label>
+          <input type="date" id="examDate" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Max Marks</label>
+            <input type="number" id="maxMarks" value="100" min="1" required>
+          </div>
+          <div class="form-group">
+            <label>Pass Marks</label>
+            <input type="number" id="passMarks" value="40" min="0" required>
+          </div>
+        </div>
+
+        <div class="error-msg" id="modalError"></div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/exams.js"></script>
+</body>
+</html>

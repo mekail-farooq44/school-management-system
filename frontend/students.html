@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Students - School Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar" id="navbar"></div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Students</h1>
+      <button class="btn" id="addStudentBtn" style="display:none;">+ Add Student</button>
+    </div>
+
+    <div class="card">
+      <div class="toolbar">
+        <input type="text" id="searchInput" placeholder="Search by name or roll number...">
+        <input type="text" id="classFilter" placeholder="Filter by class...">
+        <button class="btn btn-secondary btn-sm" id="searchBtn">Search</button>
+      </div>
+
+      <div id="tableWrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Roll No.</th>
+              <th>Name</th>
+              <th>Class</th>
+              <th>Section</th>
+              <th>Contact</th>
+              <th>Parent</th>
+              <th id="actionsHeader" style="display:none;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentsTableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState" style="display:none;">No students found.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit Modal -->
+  <div class="modal-overlay" id="studentModal">
+    <div class="modal">
+      <h2 id="modalTitle">Add Student</h2>
+      <form id="studentForm">
+        <input type="hidden" id="studentId">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="firstName" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="lastName" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Class</label>
+            <input type="text" id="className" placeholder="e.g. Grade 5" required>
+          </div>
+          <div class="form-group">
+            <label>Section</label>
+            <input type="text" id="section" placeholder="e.g. A">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Roll Number</label>
+            <input type="text" id="rollNumber" required>
+          </div>
+          <div class="form-group">
+            <label>Gender</label>
+            <select id="gender">
+              <option value="">-</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Contact Number</label>
+          <input type="text" id="contactNumber">
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input type="text" id="address">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Parent Name</label>
+            <input type="text" id="parentName">
+          </div>
+          <div class="form-group">
+            <label>Parent Contact</label>
+            <input type="text" id="parentContact">
+          </div>
+        </div>
+
+        <div class="error-msg" id="modalError"></div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/students.js"></script>
+</body>
+</html>

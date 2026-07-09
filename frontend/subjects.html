@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Subjects - School Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar" id="navbar"></div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Subjects</h1>
+      <button class="btn" id="addSubjectBtn" style="display:none;">+ Add Subject</button>
+    </div>
+
+    <div class="card">
+      <div class="toolbar">
+        <select id="classFilter">
+          <option value="">All classes</option>
+        </select>
+      </div>
+
+      <div id="tableWrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Code</th>
+              <th>Class</th>
+              <th>Teacher</th>
+              <th id="actionsHeader" style="display:none;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="subjectsTableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState" style="display:none;">No subjects found.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit Modal -->
+  <div class="modal-overlay" id="subjectModal">
+    <div class="modal">
+      <h2 id="modalTitle">Add Subject</h2>
+      <form id="subjectForm">
+        <input type="hidden" id="subjectId">
+        <div class="form-group">
+          <label>Subject Name</label>
+          <input type="text" id="name" placeholder="e.g. Mathematics" required>
+        </div>
+        <div class="form-group">
+          <label>Subject Code</label>
+          <input type="text" id="code" placeholder="e.g. MATH101">
+        </div>
+        <div class="form-group">
+          <label>Class</label>
+          <select id="classId" required>
+            <option value="">-- Select class --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Teacher</label>
+          <select id="teacherId">
+            <option value="">-- None --</option>
+          </select>
+        </div>
+
+        <div class="error-msg" id="modalError"></div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/subjects.js"></script>
+</body>
+</html>

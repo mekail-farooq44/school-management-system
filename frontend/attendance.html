@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Attendance - School Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar" id="navbar"></div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Attendance</h1>
+    </div>
+
+    <!-- Admin / Teacher view: mark attendance for a class -->
+    <div class="card" id="markAttendanceCard" style="display:none; margin-bottom: 20px;">
+      <div class="toolbar">
+        <select id="classSelect">
+          <option value="">-- Select class --</option>
+        </select>
+        <input type="date" id="dateInput">
+        <button class="btn btn-secondary btn-sm" id="loadStudentsBtn">Load Students</button>
+      </div>
+
+      <div id="markingTableWrapper" style="display:none;">
+        <table>
+          <thead>
+            <tr>
+              <th>Roll No.</th>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+          <tbody id="markingTableBody"></tbody>
+        </table>
+        <div style="margin-top: 16px;">
+          <button class="btn" id="saveAttendanceBtn">Save Attendance</button>
+        </div>
+        <div class="success-msg" id="saveSuccessMsg" style="margin-top:12px;">Attendance saved successfully.</div>
+        <div class="error-msg" id="saveErrorMsg" style="margin-top:12px;"></div>
+      </div>
+      <div class="empty-state" id="noStudentsState" style="display:none;">
+        No students found in this class. Add students to this class first.
+      </div>
+    </div>
+
+    <!-- Everyone: view attendance history -->
+    <div class="card">
+      <div class="page-header" style="margin-bottom:12px;">
+        <h2 style="font-size:16px; margin:0;" id="historyTitle">Attendance History</h2>
+      </div>
+
+      <div class="toolbar" id="studentPickerWrapper" style="display:none;">
+        <select id="studentSelect">
+          <option value="">-- Select a student --</option>
+        </select>
+      </div>
+
+      <div class="stats-grid" id="summaryStats" style="display:none;"></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody id="historyTableBody"></tbody>
+      </table>
+      <div class="empty-state" id="historyEmptyState" style="display:none;">No attendance records found.</div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/attendance.js"></script>
+</body>
+</html>

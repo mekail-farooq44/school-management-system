@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Results - School Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar" id="navbar"></div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1 id="pageTitle">Results</h1>
+    </div>
+
+    <!-- Admin / Teacher: enter marks for an exam -->
+    <div class="card" id="enterMarksCard" style="display:none; margin-bottom:20px;">
+      <div class="toolbar">
+        <select id="examSelect">
+          <option value="">-- Select exam --</option>
+        </select>
+        <button class="btn btn-secondary btn-sm" id="loadExamBtn">Load</button>
+      </div>
+
+      <div id="marksTableWrapper" style="display:none;">
+        <p style="font-size:13px; color:#6b7280; margin-top:0;" id="examMeta"></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Roll No.</th>
+              <th>Name</th>
+              <th>Marks Obtained</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+          <tbody id="marksTableBody"></tbody>
+        </table>
+        <div style="margin-top:16px;">
+          <button class="btn" id="saveResultsBtn">Save Results</button>
+        </div>
+        <div class="success-msg" id="saveSuccessMsg" style="margin-top:12px;">Results saved successfully.</div>
+        <div class="error-msg" id="saveErrorMsg" style="margin-top:12px;"></div>
+      </div>
+      <div class="empty-state" id="noStudentsState" style="display:none;">
+        No students found in this exam's class.
+      </div>
+    </div>
+
+    <!-- Admin/Teacher: view results for a selected exam -->
+    <div class="card" id="viewResultsCard" style="display:none; margin-bottom:20px;">
+      <h2 style="font-size:16px; margin-top:0;">Exam Results</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Roll No.</th>
+            <th>Name</th>
+            <th>Marks</th>
+            <th>Percentage</th>
+            <th>Grade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="viewResultsTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Student: own results -->
+    <div class="card" id="ownResultsCard" style="display:none;">
+      <h2 style="font-size:16px; margin-top:0;">My Results</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Exam</th>
+            <th>Subject</th>
+            <th>Marks</th>
+            <th>Percentage</th>
+            <th>Grade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="ownResultsTableBody"></tbody>
+      </table>
+      <div class="empty-state" id="ownEmptyState" style="display:none;">No results published yet.</div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/results.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard - School Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar" id="navbar"></div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Dashboard</h1>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="studentCount">—</div>
+        <div class="stat-label">Total Students</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="teacherCount">—</div>
+        <div class="stat-label">Total Teachers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="classCount">—</div>
+        <div class="stat-label">Total Classes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="examCount">—</div>
+        <div class="stat-label">Total Exams</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="roleLabel">—</div>
+        <div class="stat-label">Your Role</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0; font-size:16px;">Welcome, <span id="welcomeName"></span> 👋</h2>
+      <p style="color:#6b7280; font-size:14px;">
+        This is the core module of the School Management System (Authentication, Students, Teachers).
+        Use the navigation above to manage student and teacher records.
+      </p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
